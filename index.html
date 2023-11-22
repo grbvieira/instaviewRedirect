@@ -1,0 +1,28 @@
+<script>
+    function getCodeFromURL() {
+      // Get the URL
+      let url = window.location.href;
+  
+      // Get the query parameters
+      let queryParameters = new URLSearchParams(url);
+  
+      // Check if the code parameter exists
+      if (queryParameters.has("code")) {
+  
+        // Return the code value
+        return queryParameters.get("code");
+      }
+  
+      return null;
+    }
+  
+    // Get the code
+    let code = getCodeFromURL();
+  
+    // Create the deeplink URL
+    let deeplinkURL = "com.instaview://auth/?code=" + code;
+  
+    // Open the deeplink
+    window.open(deeplinkURL);
+  </script>
+  
