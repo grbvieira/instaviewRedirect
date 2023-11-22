@@ -8,9 +8,10 @@
   
       // Check if the code parameter exists
       if (queryParameters.has("code")) {
-  
+        document.write("sim")
         // Return the code value
         return queryParameters.get("code");
+        document.write("não")
       }
   
       return null;
@@ -21,7 +22,7 @@
   
     // Create the deeplink URL
     let deeplinkURL = "com.instaview://auth/?code=" + code;
-  
+     document.write("code: " + code)
     // Open the deeplink
     window.open(deeplinkURL);
   </script>
