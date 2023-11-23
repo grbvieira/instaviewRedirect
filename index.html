@@ -1,29 +1,28 @@
 <script>
-    function getCodeFromURL() {
-      // Get the URL
-      let url = window.location.href;
-  
-      // Get the query parameters
-      let queryParameters = new URLSearchParams(url);
-      document.write("url: " + url)
-      // Check if the code parameter exists
-      if (queryParameters.has("code")) {
-        document.write("sim")
-        // Return the code value
-        return queryParameters.get("code");
-        document.write("não")
-      }
-  
-      return null;
+  function getCodeFromURL() {
+    // Get the URL
+    let url = window.location.href;
+
+    // Split the URL into its components
+    const components = url.split("?");
+
+    // Get the query parameters
+    const queryParameters = new URLSearchParams(components[1]);
+    if (queryParameters.has("code")) {
+      // Get the code parameter
+      console.log("tem code");
+      return queryParameters.get("code");
     }
-  
-    // Get the code
-    let code = getCodeFromURL();
-  
-    // Create the deeplink URL
-    let deeplinkURL = "com.instaview://auth/?code=" + code;
-     document.write("code: " + code)
-    // Open the deeplink
-    window.open(deeplinkURL);
-  </script>
-  
+
+    return null;
+  }
+
+  // Get the code
+  let code = getCodeFromURL();
+
+  // Create the deeplink URL
+  let deeplinkURL = "com.instaview://auth/?code=" + code;
+  // Open the deeplink
+  console.log("final");
+  document.location = deeplinkURL;
+</script>
